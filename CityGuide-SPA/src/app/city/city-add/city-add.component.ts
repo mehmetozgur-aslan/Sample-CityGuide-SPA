@@ -9,6 +9,7 @@ import {
 import { City } from 'src/app/models/city';
 import { AlertifyService } from 'src/app/services/alertify.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-city-add',
@@ -19,7 +20,8 @@ import { Router } from '@angular/router';
 export class CityAddComponent implements OnInit {
   constructor(
     private cityService: CityService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private authService:AuthService
   ) {}
 
   city: City;
@@ -40,7 +42,7 @@ export class CityAddComponent implements OnInit {
     if (this.cityAddForm.valid) {
       this.city = Object.assign({}, this.cityAddForm.value);
       // TODO gelistirilecek
-      // this.city.userId = this.authService.getCurrentUserId();
+       this.city.userId = this.authService.getCurrentUserId();
       this.cityService.add(this.city);
     }
   }
