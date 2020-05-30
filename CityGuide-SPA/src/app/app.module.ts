@@ -13,6 +13,7 @@ import { appRoutes } from './routes';
 import { CityDetailComponent } from './city/city-detail/city-detail.component';
 import { CityAddComponent } from './city/city-add/city-add.component';
 import { AlertifyService } from './services/alertify.service';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { AlertifyService } from './services/alertify.service';
     ReactiveFormsModule,
     // AppRoutingModule,
   ],
-  providers: [AlertifyService],
+  providers: [AlertifyService,AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
