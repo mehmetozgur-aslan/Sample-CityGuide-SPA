@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { LoginUser } from "../models/loginUser";
 import { HttpHeaders, HttpClient } from "@angular/common/http";
-import { JwtHelper, tokenNotExpired } from "angular2-jwt";
+//import { JwtHelper, tokenNotExpired } from "angular2-jwt";
 import { Router } from "@angular/router";
 import { AlertifyService } from "./alertify.service";
 import { RegisterUser } from "../models/registerUser";
@@ -19,7 +19,7 @@ export class AuthService {
   path = "http://localhost:58822/api/auth/";
   userToken: any;
   decodedToken: any;
-  jwtHelper: JwtHelper = new JwtHelper();
+  //jwtHelper: JwtHelper = new JwtHelper();
   TOKEN_KEY="token"
 
   login(loginUser: LoginUser) {
@@ -30,7 +30,7 @@ export class AuthService {
       .subscribe(data => {
         this.saveToken(data);
         this.userToken = data;
-        this.decodedToken = this.jwtHelper.decodeToken(data.toString());
+        //this.decodedToken = this.jwtHelper.decodeToken(data.toString());
         this.alertifyService.success("Sisteme giriş yapıldı");
         this.router.navigateByUrl("/city");
       });
@@ -56,7 +56,7 @@ export class AuthService {
   }
 
   loggedIn(){
-    return tokenNotExpired(this.TOKEN_KEY)
+   // return tokenNotExpired(this.TOKEN_KEY)
   }
 
   get token(){
@@ -65,6 +65,6 @@ export class AuthService {
 
 
   getCurrentUserId(){
-    return this.jwtHelper.decodeToken(this.token).nameid
+  //  return this.jwtHelper.decodeToken(this.token).nameid
   }
 }
