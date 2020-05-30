@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CityService } from 'src/app/services/city.service';
 import { City } from 'src/app/models/city';
+import { Photo } from 'src/app/models/photo';
 
 @Component({
   selector: 'app-city-detail',
@@ -16,6 +17,7 @@ export class CityDetailComponent implements OnInit {
   ) {}
 
   city: City = new City();
+  photos: Photo[] = [];
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
@@ -26,6 +28,12 @@ export class CityDetailComponent implements OnInit {
   getCityById(cityId: number) {
     this.cityService.getCityById(cityId).subscribe((data) => {
       this.city = data;
+    });
+  }
+
+  getPhotosByCity(cityId: number) {
+    this.cityService.getPhotosByCity(cityId).subscribe((data) => {
+      this.photos = data;
     });
   }
 }
