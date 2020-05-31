@@ -41,7 +41,6 @@ export class CityAddComponent implements OnInit {
   add() {
     if (this.cityAddForm.valid) {
       this.city = Object.assign({}, this.cityAddForm.value);
-      // TODO gelistirilecek
        this.city.userId = this.authService.getCurrentUserId();
       this.cityService.add(this.city);
     }

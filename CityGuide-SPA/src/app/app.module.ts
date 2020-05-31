@@ -17,6 +17,7 @@ import { AuthService } from './services/auth.service';
 import { RegisterComponent } from './register/register.component';
 import { NgxEditorModule } from 'ngx-editor';
 import { PhotoComponent } from './photo/photo.component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { PhotoComponent } from './photo/photo.component';
     FormsModule,
     ReactiveFormsModule,
     NgxEditorModule,
+    FileUploadModule,
     // AppRoutingModule,
   ],
   providers: [AlertifyService, AuthService],
