@@ -18,21 +18,22 @@ export class CityService {
   path: 'http://localhost:58822/api/';
 
   getCities(): Observable<City[]> {
-    return this.httpClient.get<City[]>(this.path + 'cities');
+    console.log(this.path)
+    return this.httpClient.get<City[]>('http://localhost:58822/api/' + 'cities');
   }
 
   getCityById(cityId: number): Observable<City> {
-    return this.httpClient.get<City>(this.path + 'cities/detail/?id=' + cityId);
+    return this.httpClient.get<City>('http://localhost:58822/api/' + 'cities/detail/?id=' + cityId);
   }
 
   getPhotosByCity(cityId: number): Observable<Photo[]> {
     return this.httpClient.get<Photo[]>(
-      this.path + 'cities/photos/?cityId=' + cityId
+      'http://localhost:58822/api/' + 'cities/photos/?cityId=' + cityId
     );
   }
 
   add(city: City) {
-    this.httpClient.post<City>(this.path + 'cities/add', city).subscribe((data) => {
+    this.httpClient.post<City>('http://localhost:58822/api/' + 'cities/add', city).subscribe((data) => {
       this.alertifyService.success('Şehir başarıyla eklendi');
       this.router.navigateByUrl('/cityDetail/' + data["id"]);
     });
