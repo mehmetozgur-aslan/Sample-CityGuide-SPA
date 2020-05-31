@@ -16,6 +16,7 @@ import { AlertifyService } from './services/alertify.service';
 import { AuthService } from './services/auth.service';
 import { RegisterComponent } from './register/register.component';
 import { NgxEditorModule } from 'ngx-editor';
+import { PhotoComponent } from './photo/photo.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { NgxEditorModule } from 'ngx-editor';
     CityDetailComponent,
     CityAddComponent,
     RegisterComponent,
+    PhotoComponent,
   ],
   imports: [
     BrowserModule,
